@@ -43,7 +43,7 @@ def blogpost(request):
             post = form.save(commit=False)
             post.pub_date = timezone.now()
             post.save()
-            redirect("home")
+            return redirect("home")
     else:
         form = BlogPost()
         return render(request, 'blog/new.html', {'form': form})
