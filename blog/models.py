@@ -1,5 +1,6 @@
 from django.db import models
-
+from django_summernote import models as summer_model
+from django_summernote import fields as summer_fields
 # Create your models here.
 
 
@@ -13,3 +14,7 @@ class Blog(models.Model):
 
     def summary(self):
         return self.body[:100]
+
+
+class summer_note(summer_model.Attachment):
+    summer_field = summer_fields.SummernoteTextField()

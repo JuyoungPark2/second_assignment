@@ -1,0 +1,22 @@
+.jyp-logo {
+  color: #7A583A;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.jyp-logo:hover {
+  color: #7A583A;
+}
+
+.nav-base {
+  border-bottom: 0.5px solid #dddbdb;
+}
+
+.nav-item {
+  color: black;
+  font-weight: 600;
+}
+
+.nav-item:hover {
+  color: #7A583A;
+}

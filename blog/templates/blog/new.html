@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <form method="POST">
+  <form method="POST" class="post-editor">
     {% csrf_token %}
-    <table>
-      {{ form.as_table }}
-    </table>
-    <br>
-    <input class="btn btn-dark" type="submit" value="제출하기">
+    {{form.title|safe}}
+    {{form.body|safe}}
+    <input class="btn btn-dark" type="submit" value="글쓰기">
   </form>
 {% endblock %}

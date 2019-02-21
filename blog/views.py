@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Blog
+from .models import summer_note
 from django.utils import timezone
-from django.core.paginator import Paginator
+# from django.core.paginator import Paginator
 from .forms import BlogPost
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -10,10 +12,10 @@ from .forms import BlogPost
 def home(request):
     blogs = Blog.objects
     blog_list = Blog.objects.all()
-    paginator = Paginator(blog_list, 3)
-    page = request.GET.get("page")
-    posts = paginator.get_page(page)
-    return render(request, 'blog/home.html', {'blogs': blogs, 'posts': posts})
+    # paginator = Paginator(blog_list, 3)
+    # page = request.GET.get("page")
+    # posts = paginator.get_page(page)
+    return render(request, 'blog/home.html', {'blogs': blog_list})
 
 
 def detail(request, blog_id):
@@ -45,5 +47,8 @@ def blogpost(request):
             post.save()
             return redirect("home")
     else:
-        form = BlogPost()
-        return render(request, 'blog/new.html', {'form': form})
+        if request.user.is_authenticated:
+            form = BlogPost()
+            return render(request, 'blog/new.html', {'form': form})
+        else:
+            return redirect("/accounts/login")
