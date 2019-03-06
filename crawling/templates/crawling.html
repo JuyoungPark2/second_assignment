@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="container">
+  <h3>충남대학교 컴퓨터공학과 학사공지</h3>
+    {% for post in posts %}
+      <h5>{{ post }}</h5>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

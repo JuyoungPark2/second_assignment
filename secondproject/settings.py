@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'portfolio.apps.PortfolioConfig',
+    'crawling.apps.CrawlingConfig',
     'accounts.apps.AccountsConfig',
     'django_summernote',
 
